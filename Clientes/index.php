@@ -37,27 +37,27 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="nombre_cliente">Nombre(s)</label>
-                                    <input type="text" class="form-control" require name="nombre_cliente" id="nombre_cliente" placeholder="" value="<?php echo $nombre_cliente ?>">
+                                    <label for="nom_cli">Nombre(s)</label>
+                                    <input type="text" class="form-control" require name="nom_cli" id="nom_cli" placeholder="" value="<?php echo $nom_cli ?>">
                                     <br>
                                 </div>
 
 
                                 <div class="form-group col-md-12">
-                                    <label for="apellido_cliente">Apellido(s) </label>
-                                    <input type="text" class="form-control" require name="apellido_cliente" id="apellido_cliente" placeholder="" value="<?php echo $apellido_cliente ?>">
+                                    <label for="ape_cli">Apellido(s) </label>
+                                    <input type="text" class="form-control" require name="ape_cli" id="ape_cli" placeholder="" value="<?php echo $ape_cli ?>">
 
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="telefono_cliente">Telefono </label>
-                                    <input type="tel" class="form-control" require name="telefono_cliente" id="telefono_cliente" placeholder="" value="<?php echo $telefono_cliente ?>">
+                                    <label for="tel_cli">Telefono </label>
+                                    <input type="tel" class="form-control" require name="tel_cli" id="tel_cli" placeholder="" value="<?php echo $tel_cli ?>">
 
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="direccion_cliente">Direccion</label>
-                                    <input type="text" class="form-control" require name="direccion_cliente" id="direccion_cliente" placeholder="" value="<?php echo $direccion_cliente ?>">
+                                    <label for="dir_cli">Direccion</label>
+                                    <input type="text" class="form-control" require name="dir_cli" id="dir_cli" placeholder="" value="<?php echo $dir_cli ?>">
                                     <br>
                                 </div>
 
@@ -130,20 +130,20 @@
 
 
                                 <td> <?php echo $cliente['id_cliente']        ?> </td>
-                                <td> <?php echo $cliente['nombre_cliente']    ?> </td>
-                                <td> <?php echo $cliente['apellido_cliente'] ?> </td>
-                                <td> <?php echo $cliente['telefono_cliente'] ?> </td>
-                                <td> <?php echo $cliente['direccion_cliente']    ?> </td>
+                                <td> <?php echo $cliente['nom_cli']    ?> </td>
+                                <td> <?php echo $cliente['ape_cli'] ?> </td>
+                                <td> <?php echo $cliente['tel_cli'] ?> </td>
+                                <td> <?php echo $cliente['dir_cli']    ?> </td>
 
 
                                 <!-- Este Formulario se utiliza para editar los registros -->
                                 <form action="" method="post">
 
                                     <input type="hidden" name="id_cliente" value="<?php echo $cliente['id_cliente'];  ?>">
-                                    <input type="hidden" name="nombre_cliente" value="<?php echo $cliente['nombre_cliente'];  ?>">
-                                    <input type="hidden" name="apellido_cliente" value="<?php echo $cliente['apellido_cliente'];  ?>">
-                                    <input type="hidden" name="telefono_cliente" value="<?php echo $cliente['telefono_cliente'];  ?>">
-                                    <input type="hidden" name="direccion_cliente" value="<?php echo $cliente['direccion_cliente'];  ?>">
+                                    <input type="hidden" name="nom_cli" value="<?php echo $cliente['nom_cli'];  ?>">
+                                    <input type="hidden" name="ape_cli" value="<?php echo $cliente['ape_cli'];  ?>">
+                                    <input type="hidden" name="tel_cli" value="<?php echo $cliente['tel_cli'];  ?>">
+                                    <input type="hidden" name="dir_cli" value="<?php echo $cliente['dir_cli'];  ?>">
 
 
                                     <td><input type="submit" class="btn btn-info" value="Seleccionar"></td>

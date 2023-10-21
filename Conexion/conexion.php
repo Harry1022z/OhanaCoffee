@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "empresa";
+$database = "ohanacoffee";
 
 
 // Crea la conexion
