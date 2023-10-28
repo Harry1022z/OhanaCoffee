@@ -51,13 +51,25 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="tel_cli">Telefono </label>
-                                    <input type="tel" class="form-control" require name="tel_cli" id="tel_cli" placeholder="" value="<?php echo $tel_cli ?>">
+                                    <input type="text" class="form-control" require name="tel_cli" id="tel_cli" placeholder="" value="<?php echo $tel_cli ?>">
 
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="dir_cli">Direccion</label>
                                     <input type="text" class="form-control" require name="dir_cli" id="dir_cli" placeholder="" value="<?php echo $dir_cli ?>">
+                                    <br>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="correo_cli">Correo</label>
+                                    <input type="text" class="form-control" require name="correo_cli" id="correo_cli" placeholder="" value="<?php echo $correo_cli ?>">
+                                    <br>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="fech_naci">Fecha Nacimiento</label>
+                                    <input type="date" class="form-control" require name="fech_naci" id="fech_naci" placeholder="" value="<?php echo $fech_naci ?>">
                                     <br>
                                 </div>
 
@@ -109,6 +121,8 @@
                         <th scope="col">Apellidos</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Direccion</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Fecha Nacimiento</th>
 
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Eliminar</th>
@@ -134,6 +148,10 @@
                                 <td> <?php echo $cliente['ape_cli'] ?> </td>
                                 <td> <?php echo $cliente['tel_cli'] ?> </td>
                                 <td> <?php echo $cliente['dir_cli']    ?> </td>
+                                <td> <?php echo $cliente['correo_cli']    ?> </td>
+                                <td> <?php echo $cliente['fech_naci']    ?> </td>
+
+
 
 
                                 <!-- Este Formulario se utiliza para editar los registros -->
@@ -144,6 +162,8 @@
                                     <input type="hidden" name="ape_cli" value="<?php echo $cliente['ape_cli'];  ?>">
                                     <input type="hidden" name="tel_cli" value="<?php echo $cliente['tel_cli'];  ?>">
                                     <input type="hidden" name="dir_cli" value="<?php echo $cliente['dir_cli'];  ?>">
+                                    <input type="hidden" name="correo_cli" value="<?php echo $cliente['correo_cli'];  ?>">
+                                    <input type="hidden" name="fech_naci" value="<?php echo $cliente['fech_naci'];  ?>">
 
 
                                     <td><input type="submit" class="btn btn-info" value="Seleccionar"></td>

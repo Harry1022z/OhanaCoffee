@@ -163,17 +163,18 @@
 
 
 
-                                <td> <?php echo $factura['id_factura']  ?> </td>
-                                <td> <?php echo $factura['fecha']       ?> </td>
+                                <td> <?php echo $factura['id_pedido']  ?> </td>
+                                <td> <?php echo $factura['fech_hor_pedido']       ?> </td>
                                 <td> <?php echo $factura['id_empleado'] ?> </td>
                                 <td> <?php echo $factura['id_cliente']  ?> </td>
-                                <td> <?php echo $factura['detalle']     ?> </td>
+                                <td> <?php echo $factura['id_mesa']     ?> </td>
+                                <td> <?php echo $factura['id_menus']     ?> </td>
 
 
                                 <!-- Este Formulario se utiliza para editar los registros -->
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="id_factura" value="<?php echo $factura['id_factura'];  ?>">
+                                    <input type="hidden" name="id_pedido" value="<?php echo $factura['id_pedido'];  ?>">
                                     <input type="hidden" name="fecha" value="<?php echo $factura['fecha'];  ?>">
                                     <input type="hidden" name="nombre_cliente" value="<?php echo $factura['id_empleado'];  ?>">
                                     <input type="hidden" name="apellido_cliente" value="<?php echo $factura['id_cliente'];  ?>">

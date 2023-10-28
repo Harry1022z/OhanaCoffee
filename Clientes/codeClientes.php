@@ -8,10 +8,13 @@ include("../Conexion/conexion.php");
 
 //Recibimos las variables enviadas
 $id_cliente = (isset($_POST['id_cliente'])) ? $_POST ['id_cliente'] : "";
-$nombre_cliente = (isset($_POST['nombre_cliente'])) ? $_POST['nombre_cliente'] : "";
-$apellido_cliente = (isset($_POST['apellido_cliente'])) ? $_POST['apellido_cliente'] : "";
-$telefono_cliente = (isset($_POST['telefono_cliente'])) ? $_POST['telefono_cliente'] : "";
-$direccion_cliente = (isset($_POST['direccion_cliente'])) ? $_POST['direccion_cliente'] : "";
+$nom_cli = (isset($_POST['nom_cli'])) ? $_POST['nom_cli'] : "";
+$ape_cli = (isset($_POST['ape_cli'])) ? $_POST['ape_cli'] : "";
+$tel_cli = (isset($_POST['tel_cli'])) ? $_POST['tel_cli'] : "";
+$dir_cli = (isset($_POST['dir_cli'])) ? $_POST['dir_cli'] : "";
+$correo_cli = (isset($_POST['correo_cli'])) ? $_POST['correo_cli'] : "";
+$fech_naci = (isset($_POST['fech_naci'])) ? $_POST['fech_naci'] : "";
+
 
 
 
@@ -28,8 +31,8 @@ switch ($accion) {
                 */
 
                 $insercionClientes = $conn->prepare(
-                "INSERT INTO clientes (id_cliente, nombre_cliente, apellido_cliente, telefono_cliente,direccion_cliente) 
-                VALUES ('$id_cliente','$nombre_cliente','$apellido_cliente','$telefono_cliente','$direccion_cliente')"
+                "INSERT INTO clientes (id_cliente, nom_cli, ape_cli, tel_cli, dir_cli, correo_cli, fech_naci ) 
+                VALUES ('$id_cliente','$no_cli','$ape_cli','$tel_cli','$dir_cli','$correo_cli','$fech_naci')"
              );
 
 
@@ -45,8 +48,8 @@ switch ($accion) {
 
     case 'btnModificar':
 
-        $editarClientes = $conn->prepare(" UPDATE clientes SET nombre_cliente = '$nombre_cliente' , 
-        apellido_cliente = '$apellido_cliente', telefono_cliente = '$telefono_cliente', direccion_cliente = '$direccion_cliente'
+        $editarClientes = $conn->prepare(" UPDATE clientes SET nom_cli = '$nom_cli' , 
+        ape_cli = '$ape_cli', tel_cli = '$tel_cli', dir_cli = '$dir_cli' , correo_cli = '$correo_cli' , fech_naci = '$fech_naci'
         WHERE id_cliente = '$id_cliente' ");
 
 

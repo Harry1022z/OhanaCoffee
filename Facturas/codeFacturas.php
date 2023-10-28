@@ -7,7 +7,7 @@ include("../Conexion/conexion.php");
 
 
 //Recibimos las variables enviadas
-$id_factura = (isset($_POST['id_factura'])) ? $_POST['id_factura'] : "";
+$id_pedido = (isset($_POST['id_pedido'])) ? $_POST['id_pedido'] : "";
 $id_empleado = (isset($_POST['id_empleado'])) ? $_POST['id_empleado'] : "";
 $id_cliente = (isset($_POST['id_cliente'])) ? $_POST['id_cliente'] : "";
 $detalle = (isset($_POST['detalle'])) ? $_POST['detalle'] : "";
@@ -48,7 +48,7 @@ switch ($accion) {
         
 
         $eliminarFacturas = $conn->prepare(" DELETE FROM factura
-        WHERE id_factura = '$id_factura' ");
+        WHERE id_pedido = '$id_pedido' ");
 
         // $consultaFoto->execute();
         $eliminarFacturas->execute();
@@ -68,9 +68,9 @@ switch ($accion) {
 
 
 /* Consultamos todas las Facturas  */
-$consultaFacturas = $conn->prepare("SELECT * FROM factura");
-$consultaFacturas->execute();
-$listaFacturas = $consultaFacturas->get_result();
+$consultaPedidos = $conn->prepare("SELECT * FROM pedido");
+$consultaPedidos->execute();
+$listaPedidos = $consultaPedidos->get_result();
 
 
 

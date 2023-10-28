@@ -5,8 +5,8 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sena Regional Quindio 2023</span><br>
-            <span> Centro De Comercio y Turismo</span>
+            <span>Copyright &copy; Empresa Ohana Coffee 2023</span><br>
+            <span> Cafeteria Exclusiva e Exquisita </span>
         </div>
     </div>
 </footer>

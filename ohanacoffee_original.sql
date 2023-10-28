@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2023 a las 01:21:38
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 29-10-2023 a las 01:55:07
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ohanacoffee`
+-- Base de datos: `ohanacoffee_original`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
   `nom_cli` varchar(30) NOT NULL,
   `ape_cli` varchar(30) NOT NULL,
-  `dir_cli` varchar(100) NOT NULL,
+  `dire_cli` varchar(100) NOT NULL,
   `tel_cli` int(11) NOT NULL,
   `correo_cli` varchar(50) NOT NULL,
   `fech_naci` date NOT NULL
@@ -41,7 +41,7 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `nom_cli`, `ape_cli`, `dir_cli`, `tel_cli`, `correo_cli`, `fech_naci`) VALUES
+INSERT INTO `clientes` (`id_cliente`, `nom_cli`, `ape_cli`, `dire_cli`, `tel_cli`, `correo_cli`, `fech_naci`) VALUES
 (4157421, 'Irlanda', 'Montiel', 'Barrio La Brasilia N°29', 320541578, 'ilrlam10@gmail.com', '1997-06-08'),
 (4521891, 'Hernesto', 'Valero', 'Barrio La Patria Mz E N° 5', 320551785, 'hernesto12@gmail.com', '1999-10-18'),
 (7452145, 'Emiliano', 'Gonzales', 'Barrio Quindio Mz B N° 14', 321524871, 'Emigonza77@gmail.com', '2001-05-07'),
@@ -60,7 +60,7 @@ INSERT INTO `clientes` (`id_cliente`, `nom_cli`, `ape_cli`, `dir_cli`, `tel_cli`
 --
 
 CREATE TABLE `domiciliarios` (
-  `id_domiciilario` int(11) NOT NULL,
+  `id_domiciliario` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `telefono` int(11) NOT NULL,
   `direccion` varchar(100) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `domiciliarios` (
 -- Volcado de datos para la tabla `domiciliarios`
 --
 
-INSERT INTO `domiciliarios` (`id_domiciilario`, `nombre`, `telefono`, `direccion`, `vehiculo`, `placa_vehiculo`, `activo`, `fecha_creacion`, `fecha_actualizacion`) VALUES
+INSERT INTO `domiciliarios` (`id_domiciliario`, `nombre`, `telefono`, `direccion`, `vehiculo`, `placa_vehiculo`, `activo`, `fecha_creacion`, `fecha_actualizacion`) VALUES
 (11245763, 'Sara', 315264878, 'Barrio Altos la pavona N° 33', 'Automovil', 'ACM-102', 'Disponible', '2018-09-22', '2023-01-02'),
 (11548719, 'Mariana', 320659154, 'Barrio 20 de Julio ', 'Motocicleta', 'PCF-45C', 'Ocupado', '2020-09-24', '2023-04-25'),
 (75481245, 'Angelica', 32054187, 'Barrio Fundadores N°23', 'Automovil', 'XMV-509', 'Disponible', '2015-02-15', '2020-05-21'),
@@ -215,7 +215,7 @@ ALTER TABLE `clientes`
 -- Indices de la tabla `domiciliarios`
 --
 ALTER TABLE `domiciliarios`
-  ADD PRIMARY KEY (`id_domiciilario`);
+  ADD PRIMARY KEY (`id_domiciliario`);
 
 --
 -- Indices de la tabla `domicilio`
@@ -292,7 +292,7 @@ ALTER TABLE `mesas`
 -- Filtros para la tabla `domicilio`
 --
 ALTER TABLE `domicilio`
-  ADD CONSTRAINT `domicilio_ibfk_1` FOREIGN KEY (`id_domiciliario`) REFERENCES `domiciliarios` (`id_domiciilario`),
+  ADD CONSTRAINT `domicilio_ibfk_1` FOREIGN KEY (`id_domiciliario`) REFERENCES `domiciliarios` (`id_domiciliario`),
   ADD CONSTRAINT `domicilio_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`);
 
 --

@@ -29,40 +29,60 @@
                             <div class="form-row">
 
                                 <div class="form-group col-md-12">
-                                    <label for="txtNombre">Numero Documento</label>
-                                    <input type="text" class="form-control" require name="txtId" id="txtId" placeholder="" value="<?php echo $txtId ?>">
+                                    <label for="id_empleado">Numero Documento</label>
+                                    <input type="text" class="form-control" require name="id_empleado" id="id_empleado" placeholder="" value="<?php echo $id_empleado ?>">
                                     <br>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="txtNombre">Nombre(s)</label>
-                                    <input type="text" class="form-control" require name="txtNombre" id="txtNombre" placeholder="" value="<?php echo $txtNombre ?>">
+                                    <label for="nombre">Nombre(s)</label>
+                                    <input type="text" class="form-control" require name="nombre" id="nombre" placeholder="Primer y Segundo Nombre" value="<?php echo $nombre ?>">
                                     <br>
                                 </div>
 
 
                                 <div class="form-group col-md-12">
-                                    <label for="txtApellidoP">Primer Apellido </label>
-                                    <input type="text" class="form-control" require name="txtApellidoP" id="txtApellidoP" placeholder="" value="<?php echo $txtApellidoP ?>">
+                                    <label for="apellido">Apellido(s) </label>
+                                    <input type="text" class="form-control" require name="apellido" id="apellido" placeholder="Apellidos" value="<?php echo $apellido ?>">
 
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="txtApellidoM">Segundo Apellido </label>
-                                    <input type="text" class="form-control" require name="txtApellidoM" id="txtApellidoM" placeholder="" value="<?php echo $txtApellidoM ?>">
+                                    <label for="direccion">Direccion </label>
+                                    <input type="text" class="form-control" require name="direccion" id="direccion" placeholder="Direccion Hogar" value="<?php echo $direccion ?>">
 
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="txtCorreo">Correo</label>
-                                    <input type="email" class="form-control" require name="txtCorreo" id="txtCorreo" placeholder="" value="<?php echo $txtCorreo ?>">
-                                    <br>
+                                    <label for="telefono">Telefono </label>
+                                    <input type="text" class="form-control" require name="telefono" id="telefono" placeholder="Telefono Celular" value="<?php echo $telefono ?>">
+
                                 </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="correo_electro">Correo Electronico </label>
+                                    <input type="email" class="form-control" require name="correo_electro" id="correo_electro" placeholder="Correo Electronico" value="<?php echo $correo_electro ?>">
+
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="fech_naci">Fecha Nacimiento </label>
+                                    <input type="date" class="form-control" require name="fech_naci" id="fech_naci" placeholder="" value="<?php echo $fech_naci ?>">
+
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="Puesto">Puesto o Cargo </label>
+                                    <input type="text" class="form-control" require name="Puesto" id="Puesto" placeholder="" value="<?php echo $Puesto ?>">
+
+                                </div>
+
+
 
                                 <div class="form-group col-md-12">
                                     <label for="foto">foto</label>
                                     <!-- El atributo accept image .... solo acepta formatos de imagen -->
-                                    
+                                    <input type="file" class="form-control" require accept="image/*" name="foto" id="foto" placeholder="" value="<?php echo $foto ?>">
                                     <br>
                                 </div>
 
@@ -109,9 +129,12 @@
                         <th scope="col">Foto</th>
                         <th scope="col">Identificacion</th>
                         <th scope="col">Nombres</th>
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Apellidos</th>
                         <th scope="col">Direccion</th>
-
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Correo Electronico</th>
+                        <th scope="col">Fecha Nacimiento</th>
+                        <th scope="col">Puesto o Cargo</th>
 
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Eliminar</th>
@@ -129,27 +152,33 @@
                     ?>
 
                             <tr>
-
                                 <td>
-                                    <img class="img-thumbnail" width="100px" src="../img/empleados.jpg"/>
+                                    <img src="../img/empleados.jpg" width="50px"/>
 
                                 </td>
 
                                 <td> <?php echo $empleado['id_empleado']        ?> </td>
                                 <td> <?php echo $empleado['nombre']    ?> </td>
                                 <td> <?php echo $empleado['apellido'] ?> </td>
-                                <td> <?php echo $empleado['direccion'] ?> </td>
+                                <td> <?php echo $empleado['direccion']    ?> </td>
+                                <td> <?php echo $empleado['telefono']    ?> </td>
+                                <td> <?php echo $empleado['correo_electro']    ?> </td>
+                                <td> <?php echo $empleado['fech_naci']    ?> </td>
+                                <td> <?php echo $empleado['Puesto']    ?> </td>
 
 
 
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="txtId" value="<?php echo $id_empleado['id'];  ?>">
-                                    <input type="hidden" name="txtNombre" value="<?php echo $nombre['nombre'];  ?>">
-                                    <input type="hidden" name="txtApellidoP" value="<?php echo $apellido['apellido'];  ?>">
-                                    <input type="hidden" name="txtApellidoM" value="<?php echo $direccion['direccion'];  ?>">
-                                    <input type="hidden" name="txtCorreo" value="<?php echo $correo['correo'];  ?>">
-                                    
+                                    <input type="hidden" name="id_empleado" value="<?php echo $empleado['id_empleado'];  ?>">
+                                    <input type="hidden" name="nombre" value="<?php echo $empleado['nombre'];  ?>">
+                                    <input type="hidden" name="apellido" value="<?php echo $empleado['apellido'];  ?>">
+                                    <input type="hidden" name="direccion" value="<?php echo $empleado['direccion'];  ?>">
+                                    <input type="hidden" name="telefono" value="<?php echo $empleado['telefono'];  ?>">
+                                    <input type="hidden" name="correo_electro" value="<?php echo $empleado['correo_electro'];  ?>">
+                                    <input type="hidden" name="fech_naci" value="<?php echo $empleado['fech_naci'];  ?>">
+                                    <input type="hidden" name="Puesto" value="<?php echo $empleado['Puesto'];  ?>">
+
 
                                     <td><input type="submit" class="btn btn-info" value="Seleccionar"></td>
                                     <td><button value="btnEliminar" class="btn btn-danger" type="submit" name="accion">Eliminar</button></td>

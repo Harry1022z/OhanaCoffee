@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Proyecto Final</title>
+    <title>Proyecto Final Sena 2023</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,9 +39,9 @@
                 <div class="sidebar-brand-icon rotate-n-15">
 
                     <!-- logo de ;)  https://fontawesome.com/search aqui se descargan -->
-                    <i class="fas fa-solid fa-code"></i>
+                    <img class="img-thumbnail" width="100px" src="../img/cafecito.png"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Nombre Del Proyecto </div>
+                <div class="sidebar-brand-text mx-3">Ohana Coffee</div>
             </a>
 
             <!-- Linea de separacion  -->
@@ -106,6 +106,45 @@
 
             </li>
 
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Domiciliarios -->
+            <div class="sidebar-heading">
+                Domiciliarios
+            </div>
+
+            <!-- Menu de Domiciliarios -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../domicilarios/index.php" aria-expanded="true" aria-controls="collapseTwo">
+                <i class=" fas fa-solid fa-users"></i>
+                    <span>Domiciliarios</span>
+                </a>
+
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Menus -->
+            <div class="sidebar-heading">
+                Menus
+            </div>
+
+            <!-- Menu de Domiciliarios -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../menus/index.php" aria-expanded="true" aria-controls="collapseTwo">
+                <i class=" fas fa-solid fa-users"></i>
+                    <span>Menus</span>
+                </a>
+
+            </li>
+
+
+            
+
+            
+
             <!-- Linea de separacion  -->
             <hr class="sidebar-divider my-0">
 
@@ -151,7 +190,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nombre del Usuario</span>
-                                <img class="img-profile rounded-circle" src="../img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="../img/sesionusu.jpg">
                             </a>
 
                             <!-- Informacion del Usuario -->
