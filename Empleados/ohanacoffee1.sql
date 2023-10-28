@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2023 a las 01:31:30
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 25-10-2023 a las 01:21:38
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,35 +56,6 @@ INSERT INTO `clientes` (`id_cliente`, `nom_cli`, `ape_cli`, `dir_cli`, `tel_cli`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalles del pedido`
---
-
-CREATE TABLE `detalles del pedido` (
-  `id_detalle` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
-  `id_platillo` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `detalles del pedido`
---
-
-INSERT INTO `detalles del pedido` (`id_detalle`, `id_pedido`, `id_platillo`, `cantidad`) VALUES
-(1, 1, 8, 2),
-(2, 2, 1, 3),
-(3, 3, 7, 4),
-(4, 4, 10, 5),
-(5, 5, 5, 3),
-(6, 6, 9, 4),
-(7, 7, 6, 4),
-(8, 8, 5, 2),
-(9, 9, 10, 6),
-(10, 10, 4, 8);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `domiciliarios`
 --
 
@@ -130,22 +101,6 @@ CREATE TABLE `domicilio` (
   `precio_domicilio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `domicilio`
---
-
-INSERT INTO `domicilio` (`hora_despacho`, `id_domicilio`, `id_domiciliario`, `id_pedido`, `precio_domicilio`) VALUES
-('2023-05-17 02:59:08', 1, 132548798, 1, 6000),
-('2023-05-17 03:01:32', 2, 1124536987, 2, 8000),
-('2023-05-17 03:01:44', 3, 75481245, 3, 9000),
-('2023-05-17 03:02:07', 4, 1145784512, 4, 7000),
-('2023-05-17 03:02:19', 5, 112458749, 5, 8000),
-('2023-05-17 03:03:08', 6, 114751223, 6, 5000),
-('2023-05-17 03:07:13', 7, 754812369, 7, 9000),
-('2023-05-17 03:04:32', 8, 11548719, 8, 7000),
-('2023-05-17 03:06:59', 9, 1147541256, 9, 4000),
-('2023-05-17 03:07:25', 10, 11245763, 10, 7000);
-
 -- --------------------------------------------------------
 
 --
@@ -190,17 +145,6 @@ CREATE TABLE `estado` (
   `nombre_estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `estado`
---
-
-INSERT INTO `estado` (`estado`, `nombre_estado`) VALUES
-(1, 'Disponible'),
-(2, 'Ocupada'),
-(3, 'reservada'),
-(4, 'dañada'),
-(5, 'mantenimiento');
-
 -- --------------------------------------------------------
 
 --
@@ -213,22 +157,6 @@ CREATE TABLE `menus` (
   `desc_plato` varchar(100) NOT NULL,
   `notas_adicionales` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `menus`
---
-
-INSERT INTO `menus` (`id_menu`, `nom_plato`, `desc_plato`, `notas_adicionales`) VALUES
-(1, 'Capuchino', 'Un delicioso café preparado con café expreso y leche montada con vapor para darle cremosidad', 'Agrega cacao en polvo o canela al gusto'),
-(2, 'Café Moca', 'Se combina una medida de expreso con chocolate en polvo o sirope, seguido de leche o nata. Al gusto', 'Contiene lácteos'),
-(3, 'Café Irish', 'Un café con leche clásico (frio) donde se utiliza nata con canela encima para darle un toque sabroso', 'Se puede elegir sin canela'),
-(4, 'Café Americano', 'Un café caliente hecho a base de agua.', 'Amargo'),
-(5, 'Café Helado', 'Se hace un café con leche con bastante hielo ', 'Elección con o sin azúcar '),
-(6, 'Café Doble', 'Un café con doble esencia lo que lo hace mas amargo', 'Elección a añadir azúcar'),
-(7, 'Galletas de Café', 'Unas deliciosas galletas, hechas con masa artesanal y un toque delicioso de café dulce.', 'Viene acompañado de un café pequeño'),
-(8, 'Chocolate con Café', 'Un delicioso chocolate de pastilla adicionando café, excelente para una tarde fría.', 'Se le puede agregar leche'),
-(9, 'Pastel de Café', 'Un pastel exquisito para un cumpleaños, comer una porción o compartirlo con tus amigos.', 'Se vende individual o entero'),
-(10, 'Helado de Café', 'Una opción deliciosa para un día caluroso', 'Máximo 3 bolas ');
 
 -- --------------------------------------------------------
 
@@ -244,22 +172,6 @@ CREATE TABLE `mesas` (
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `mesas`
---
-
-INSERT INTO `mesas` (`id_mesa`, `nombre_mesa`, `ubicacion_mesa`, `capacidad`, `estado`) VALUES
-(1, 'mesa 1', 'Sala principal', 4, 1),
-(2, 'mesa 2', 'Terraza', 2, 1),
-(3, 'mesa 3', 'Sala principal', 5, 1),
-(4, 'mesa 4', 'Terraza', 3, 1),
-(5, 'mesa 5', 'balcón ', 4, 1),
-(6, 'mesa 6', 'Terraza', 6, 1),
-(7, 'mesa 7', 'segundo piso', 3, 1),
-(8, 'mesa 8', 'balcón ', 5, 1),
-(9, 'mesa 9', 'segundo piso', 2, 1),
-(10, 'mesa 10', 'Terraza', 3, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -267,28 +179,13 @@ INSERT INTO `mesas` (`id_mesa`, `nombre_mesa`, `ubicacion_mesa`, `capacidad`, `e
 --
 
 CREATE TABLE `pedidos` (
+  `fech_hor_pedido` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `id_pedido` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL,
   `id_mesa` int(11) NOT NULL,
-  `fech_hor_pedido` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id_menus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`id_pedido`, `id_cliente`, `id_empleado`, `id_mesa`, `fech_hor_pedido`) VALUES
-(1, 55417854, 41944751, 1, '2023-05-17 02:41:57'),
-(2, 7452145, 41578451, 2, '2023-05-17 02:43:04'),
-(3, 415574124, 112459621, 3, '2023-05-17 02:43:28'),
-(4, 7455124, 11245784, 4, '2023-05-17 02:44:19'),
-(5, 4521891, 113254745, 5, '2023-05-17 02:45:09'),
-(6, 4157421, 11548741, 6, '2023-05-17 02:45:30'),
-(7, 7854712, 124578961, 7, '2023-05-17 02:46:13'),
-(8, 1135854712, 115478121, 8, '2023-05-17 02:46:39'),
-(9, 74512245, 113254795, 9, '2023-05-17 02:46:53'),
-(10, 48157452, 112541578, 10, '2023-05-17 02:47:08');
 
 -- --------------------------------------------------------
 
@@ -305,22 +202,6 @@ CREATE TABLE `reservas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `reservas`
---
-
-INSERT INTO `reservas` (`id_reserva`, `id_cliente`, `id_mesa`, `fech_hor_reserv`, `est_reservacion`) VALUES
-(1, 55417854, 1, '2023-05-24 14:00:00', 'Confirmada'),
-(2, 7452145, 2, '2023-05-20 18:25:00', 'confirmada'),
-(3, 415574124, 3, '2023-06-20 07:30:00', 'pendiente '),
-(4, 7455124, 4, '2023-05-30 13:40:00', 'cancelada '),
-(5, 4521891, 5, '2023-05-13 10:30:00', 'pendiente'),
-(6, 4157421, 6, '2023-05-27 11:10:00', 'confirmada\r\n'),
-(7, 7854712, 7, '2023-05-29 08:20:00', 'pendiente '),
-(8, 1135854712, 8, '2023-06-06 15:30:00', 'cancelada'),
-(9, 74512245, 8, '2023-05-04 13:15:00', 'confirmada '),
-(10, 48157452, 10, '2023-05-01 19:40:00', 'confirmada');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -329,15 +210,6 @@ INSERT INTO `reservas` (`id_reserva`, `id_cliente`, `id_mesa`, `fech_hor_reserv`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
-
---
--- Indices de la tabla `detalles del pedido`
---
-ALTER TABLE `detalles del pedido`
-  ADD PRIMARY KEY (`id_detalle`),
-  ADD KEY `id_pedido` (`id_pedido`),
-  ADD KEY `id_platillo` (`id_platillo`),
-  ADD KEY `cantidad` (`cantidad`);
 
 --
 -- Indices de la tabla `domiciliarios`
@@ -385,7 +257,8 @@ ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id_pedido`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_empleado` (`id_empleado`),
-  ADD KEY `id_mesa` (`id_mesa`);
+  ADD KEY `id_mesa` (`id_mesa`),
+  ADD KEY `id_menus` (`id_menus`);
 
 --
 -- Indices de la tabla `reservas`
@@ -416,13 +289,6 @@ ALTER TABLE `mesas`
 --
 
 --
--- Filtros para la tabla `detalles del pedido`
---
-ALTER TABLE `detalles del pedido`
-  ADD CONSTRAINT `detalles del pedido_ibfk_1` FOREIGN KEY (`id_platillo`) REFERENCES `platillos` (`id_platillo`),
-  ADD CONSTRAINT `detalles del pedido_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`);
-
---
 -- Filtros para la tabla `domicilio`
 --
 ALTER TABLE `domicilio`
@@ -439,16 +305,17 @@ ALTER TABLE `mesas`
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
-  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`),
-  ADD CONSTRAINT `pedidos_ibfk_3` FOREIGN KEY (`id_mesa`) REFERENCES `mesas` (`id_mesa`);
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pedidos_ibfk_3` FOREIGN KEY (`id_mesa`) REFERENCES `mesas` (`id_mesa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pedidos_ibfk_4` FOREIGN KEY (`id_menus`) REFERENCES `menus` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_mesa`) REFERENCES `mesas` (`id_mesa`),
-  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
+  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_mesa`) REFERENCES `mesas` (`id_mesa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

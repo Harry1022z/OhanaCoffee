@@ -111,7 +111,7 @@
                         <th scope="col">Nombres</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Direccion</th>
-                        <th scope="col">Correo</th>
+
 
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Eliminar</th>
