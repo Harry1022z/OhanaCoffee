@@ -7,7 +7,7 @@ include("../Conexion/conexion.php");
 
 
 //Recibimos las variables enviadas
-$id_cliente = (isset($_POST['id_cliente'])) ? $_POST['id_cliente'] : "";
+$id_cliente = (isset($_POST['id_cliente'])) ? $_POST ['id_cliente'] : "";
 $nombre_cliente = (isset($_POST['nombre_cliente'])) ? $_POST['nombre_cliente'] : "";
 $apellido_cliente = (isset($_POST['apellido_cliente'])) ? $_POST['apellido_cliente'] : "";
 $telefono_cliente = (isset($_POST['telefono_cliente'])) ? $_POST['telefono_cliente'] : "";
