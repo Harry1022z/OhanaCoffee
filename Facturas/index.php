@@ -35,10 +35,10 @@
                                 <!-- Selector de EMPLEADOS -->
                                 <div class="form-group col-md-12">
 
-                                    <label for="id_empleado">Empleado</label>
+                                    <label for="id_cliente">Empleado</label>
 
 
-                                    <select name="id_empleado" id="id_empleado" class="form-control">
+                                    <select name="id_cliente" id="id_cliente" class="form-control">
 
                                         <?php
 
@@ -72,14 +72,11 @@
 
                                         <?php
 
-                                        if ($listaClientes->num_rows > 0) {
+                                        if ($listaClientes->num_rows > 0)
                                             foreach ($listaClientes as $cliente) {
                                                 echo " <option value='' hidden > Seleccione el Empleado</option> ";
-                                                echo " <option value='{$cliente['id_cliente']}'> {$cliente['id_cliente']} {$cliente['nombre_cliente']} {$cliente['apellido_cliente']} </option> ";
-                                            }
-                                        } else {
-
-                                            echo "<h2> No tenemos resultados </h2>";
+                                                echo " <option value='{$cliente['id_cliente']}'> {$cliente['id_cliente']} {$cliente['nom_cli']} {$cliente['ape_cliente']} </option> ";
+                                                        } else {"<h2> No tenemos resultados </h2>";
                                         }
                                         ?>
                                     </select>
@@ -92,8 +89,8 @@
 
 
                                 <div class="form-group col-md-12">
-                                    <label for="detalle">Detalle</label>
-                                    <input type="text" class="form-control" require name="detalle" id="detalle" placeholder="Detalle de la factura" value="<?php echo $detalle ?>">
+                                    <label for="id_mesa">Detalle</label>
+                                    <input type="text" class="form-control" require name="id_mesa" id="id_mesa" placeholder="Detalle de la factura" value="<?php echo $id_mesa ?>">
                                     <br>
                                 </div>
 
@@ -163,22 +160,23 @@
 
 
 
-                                <td> <?php echo $factura['id_pedido']  ?> </td>
-                                <td> <?php echo $factura['fech_hor_pedido']       ?> </td>
-                                <td> <?php echo $factura['id_empleado'] ?> </td>
-                                <td> <?php echo $factura['id_cliente']  ?> </td>
+                                <td> <?php echo $factura['fech_hor_pedido']  ?> </td>
+                                <td> <?php echo $factura['id_pedido']       ?> </td>
+                                <td> <?php echo $factura['id_cliente'] ?> </td>
+                                <td> <?php echo $factura['id_empleado']  ?> </td>
                                 <td> <?php echo $factura['id_mesa']     ?> </td>
-                                <td> <?php echo $factura['id_menus']     ?> </td>
+
 
 
                                 <!-- Este Formulario se utiliza para editar los registros -->
                                 <form action="" method="post">
 
+                                    <input type="hidden" name="fech_hor_pedido" value="<?php echo $factura['fech_hor_pedido'];  ?>">
                                     <input type="hidden" name="id_pedido" value="<?php echo $factura['id_pedido'];  ?>">
-                                    <input type="hidden" name="fecha" value="<?php echo $factura['fecha'];  ?>">
-                                    <input type="hidden" name="nombre_cliente" value="<?php echo $factura['id_empleado'];  ?>">
-                                    <input type="hidden" name="apellido_cliente" value="<?php echo $factura['id_cliente'];  ?>">
-                                    <input type="hidden" name="telefono_cliente" value="<?php echo $factura['detalle'];  ?>">
+                                    <input type="hidden" name="nom_cli" value="<?php echo $factura['id_cliente'];  ?>">
+                                    <input type="hidden" name="ape_cli" value="<?php echo $factura['id_empleado'];  ?>">
+                                    <input type="hidden" name="tel_cli" value="<?php echo $factura['id_mesa'];  ?>">
+
 
 
 

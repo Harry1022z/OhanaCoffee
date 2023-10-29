@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" type="image/jpg" href="../img/coffee.png">
 
     <title>Proyecto Final Sena 2023</title>
 
@@ -106,22 +107,6 @@
 
             </li>
 
-            <hr class="sidebar-divider my-0">
-
-
-            <!-- Domiciliarios -->
-            <div class="sidebar-heading">
-                Domiciliarios
-            </div>
-
-            <!-- Menu de Domiciliarios -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="../domicilarios/index.php" aria-expanded="true" aria-controls="collapseTwo">
-                <i class=" fas fa-solid fa-users"></i>
-                    <span>Domiciliarios</span>
-                </a>
-
-            </li>
 
             <hr class="sidebar-divider my-0">
 
@@ -136,6 +121,20 @@
                 <a class="nav-link collapsed" href="../menus/index.php" aria-expanded="true" aria-controls="collapseTwo">
                 <i class=" fas fa-solid fa-users"></i>
                     <span>Menus</span>
+                </a>
+
+            </li>
+
+                        <!-- Domiciliarios -->
+                        <div class="sidebar-heading">
+                Domiciliarios
+            </div>
+
+            <!-- Menu de Domiciliarios -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../Domiciliarios/index.php" aria-expanded="true" aria-controls="collapseTwo">
+                <i class=" fas fa-solid fa-users"></i>
+                    <span>Domiciliarios</span>
                 </a>
 
             </li>

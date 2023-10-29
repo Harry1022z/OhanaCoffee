@@ -7,14 +7,15 @@ include("../Conexion/conexion.php");
 
 
 //Recibimos las variables enviadas
-$id_empleado = (isset($_POST['id_empleado'])) ? $_POST['id_empleado'] : "";
+$id_domiciliario = (isset($_POST['id_domiciliario'])) ? $_POST['id_domiciliario'] : "";
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : "";
-$apellido = (isset($_POST['apellido'])) ? $_POST['apellido'] : "";
-$direccion = (isset($_POST['direccion'])) ? $_POST['direccion'] : "";
 $telefono = (isset($_POST['telefono'])) ? $_POST['telefono'] : "";
-$correo_electro = (isset($_POST['correo_electro'])) ? $_POST['correo_electro'] : "";
-$fech_naci = (isset($_POST['fech_naci'])) ? $_POST['fech_naci'] : "";
-$Puesto = (isset($_POST['Puesto'])) ? $_POST['Puesto'] : "";
+$direccion = (isset($_POST['direccion'])) ? $_POST['direccion'] : "";
+$vehiculo = (isset($_POST['vehiculo'])) ? $_POST['vehiculo'] : "";
+$placa_vehiculo = (isset($_POST['placa_vehiculo'])) ? $_POST['placa_vehiculo'] : "";
+$activo = (isset($_POST['activo'])) ? $_POST['activo'] : "";
+$fecha_creacion = (isset($_POST['fecha_creacion'])) ? $_POST['fecha_creacion'] : "";
+$fecha_actualizacion = (isset($_POST['fecha_actualizacion'])) ? $_POST['fecha_actualizacion'] : "";
 
 $foto = (isset($_FILES['foto']["name"])) ? $_FILES['foto']["name"] : "";
 
@@ -41,7 +42,7 @@ switch ($accion) {
 
             if ($tmpFoto != "") {
                 /* Movemos el archivo a la carpeta imagenes  */
-                move_uploaded_file($tmpFoto, "src=../img/empleados.jpg" . $nombreFoto);
+                move_uploaded_file($tmpFoto, "src=../img/domiciliarios.jpg" . $nombreFoto);
 
 
                 /* la variable sentencia recolecta la informacion del formulario y 
@@ -49,15 +50,15 @@ switch ($accion) {
                 La variable conn nos brinda la conexion a la base de datos.
                 ->prepare nos prepara la sentencia SQL para que inyecte los valores a la BD.
                 */
-                $insercionEmpleados = $conn->prepare(
-                    "INSERT INTO empleados( id_empleado, nombre, apellido, 
+                $inserciondomiciliarios = $conn->prepare(
+                    "INSERT INTO domiciliarios( id_domiciliario, nombre, telefono, 
                 direccion, foto) 
-                VALUES ('$id_empleado','$nombre','$apellido','$direccion', '$telefono', '$correo_electro', '$fech_naci', '$Puesto', '$foto')"
+                VALUES ('$id_domiciliario','$nombre','$telefono','$direccion', '$vehiculo', '$placa_vehiculo', '$activo', '$fecha_creacion', '$fecha_actualizacion', '$foto')"
                 );
 
 
 
-                $insercionEmpleados->execute();
+                $inserciondomiciliarios->execute();
                 $conn->close();
                
                echo" <script>
@@ -81,13 +82,13 @@ switch ($accion) {
 
     case 'btnModificar':
 
-        $editarEmpleados = $conn->prepare(" UPDATE empleados SET nombre = '$nombre' , 
-        apellido = '$apellido', direccion = '$direccion'
-        WHERE id_empleado = '$id_empleado' ");
+        $editardomiciliarios = $conn->prepare(" UPDATE domiciliarios SET nombre = '$nombre' , 
+        telefono = '$telefono', direccion = '$direccion'
+        WHERE id_domiciliario = '$id_domiciliario' ");
 
         /* Aca solo esta actualizando la fotografia */
-        $editarEmpleadosFoto = $conn->prepare(" UPDATE empleados SET  foto = '$foto'
-        WHERE id_empleado = '$id_empleado' ");
+        $editarEmpleadosFoto = $conn->prepare(" UPDATE domiciliarios SET  foto = '$foto'
+        WHERE id_domiciliario = '$id_domiciliario' ");
 
 
         $fecha = new DateTime();
@@ -110,8 +111,8 @@ switch ($accion) {
             echo "Problemas con la Foto";
         }
 
-        $editarEmpleados->execute();
-        $editarEmpleadosFoto->execute();
+        $editardomiciliarios->execute();
+        $editardomiciliariosFoto->execute();
         $conn->close();
 
         header('location: index.php');
@@ -121,11 +122,11 @@ switch ($accion) {
     case 'btnEliminar':
         
 
-        $eliminarEmpleado = $conn->prepare(" DELETE FROM empleados
-        WHERE id_empleado = '$id_empleado' ");
+        $eliminardomiciliario = $conn->prepare(" DELETE FROM domiciliarios
+        WHERE id_domiciliario = '$id_domiciliario' ");
 
         // $consultaFoto->execute();
-        $eliminarEmpleado->execute();
+        $eliminardomiciliario->execute();
         $conn->close();
 
         header('location: index.php');
@@ -141,8 +142,8 @@ switch ($accion) {
 
 
 
-/* Consultamos todos los empleados  */
-$consultaEmpleados = $conn->prepare("SELECT * FROM empleados");
+/* Consultamos todos los domiciliarios  */
+$consultaEmpleados = $conn->prepare("SELECT * FROM domiciliarios");
 $consultaEmpleados->execute();
 $listaEmpleados = $consultaEmpleados->get_result();
 $conn->close();

@@ -7,10 +7,12 @@ include("../Conexion/conexion.php");
 
 
 //Recibimos las variables enviadas
+$fech_hor_pedido = (isset($_POST['fech_hor_pedido'])) ? $_POST['fech_hor_pedido'] : "";
 $id_pedido = (isset($_POST['id_pedido'])) ? $_POST['id_pedido'] : "";
-$id_empleado = (isset($_POST['id_empleado'])) ? $_POST['id_empleado'] : "";
 $id_cliente = (isset($_POST['id_cliente'])) ? $_POST['id_cliente'] : "";
-$detalle = (isset($_POST['detalle'])) ? $_POST['detalle'] : "";
+$id_empleado = (isset($_POST['id_empleado'])) ? $_POST['id_empleado'] : "";
+$id_mesa = (isset($_POST['id_mesa'])) ? $_POST['id_mesa'] : "";
+$id_menus = (isset($_POST['id_menus'])) ? $_POST['id_menus'] : "";
 
 
 
@@ -27,14 +29,14 @@ switch ($accion) {
                 ->prepare nos prepara la sentencia SQL para que inyecte los valores a la BD.
                 */
 
-                $insercionFacturas = $conn->prepare(
-                "INSERT INTO factura ( id_empleado, id_cliente, detalle) 
-                VALUES ('$id_empleado','$id_cliente','$detalle')"
+                $insercionpedidos = $conn->prepare(
+                "INSERT INTO pedidos ( fech_hor_pedido, id_pedido, id_cliente, id_empleado, id_mesa, id_menus ) 
+                VALUES ('$fech_hor_pedido','$id_pedido','$id_cliente','$id_empleado','$id_mesa','$id_menus')"
              );
 
 
 
-        $insercionFacturas->execute();
+        $insercionpedidos->execute();
         $conn->close();
 
         header('location: index.php');
@@ -47,11 +49,11 @@ switch ($accion) {
     case 'btnEliminar':
         
 
-        $eliminarFacturas = $conn->prepare(" DELETE FROM factura
-        WHERE id_pedido = '$id_pedido' ");
+        $eliminarpedidos = $conn->prepare(" DELETE FROM pedidos
+        WHERE fech_hor_pedido = '$fech_hor_pedido' ");
 
         // $consultaFoto->execute();
-        $eliminarFacturas->execute();
+        $eliminarpedidos->execute();
         $conn->close();
 
         header('location: index.php');
@@ -68,9 +70,9 @@ switch ($accion) {
 
 
 /* Consultamos todas las Facturas  */
-$consultaPedidos = $conn->prepare("SELECT * FROM pedido");
-$consultaPedidos->execute();
-$listaPedidos = $consultaPedidos->get_result();
+$consultapedidos = $conn->prepare("SELECT * FROM pedidos");
+$consultapedidos->execute();
+$listaFacturas = $consultapedidos->get_result();
 
 
 
