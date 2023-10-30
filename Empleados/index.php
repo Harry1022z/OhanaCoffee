@@ -124,7 +124,7 @@
                         <th scope="col">Telefono</th>
                         <th scope="col">Correo Electronico</th>
                         <th scope="col">Fecha Nacimiento</th>
-                        <th scope="col">Puesto o Cargo</th>
+                        <th scope="col">Cargo</th>
 
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Eliminar</th>
