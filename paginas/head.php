@@ -33,7 +33,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to right, #ba9065, #ba9065);">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../paginas/index.php">
@@ -44,17 +44,6 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Ohana Coffee</div>
             </a>
-
-            <!-- Linea de separacion  -->
-            <hr class="sidebar-divider my-0">
-
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="../paginas/index.php">
-                    <i class="fas fa-home"></i>
-                    <span>Inicio</span></a>
-            </li>
 
             <!-- Linea de separacion  -->
             <hr class="sidebar-divider my-0">

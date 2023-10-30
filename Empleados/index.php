@@ -78,16 +78,6 @@
                                 </div>
 
 
-
-                                <div class="form-group col-md-12">
-                                    <label for="foto">foto</label>
-                                    <!-- El atributo accept image .... solo acepta formatos de imagen -->
-                                    <input type="file" class="form-control" require accept="image/*" name="foto" id="foto" placeholder="" value="<?php echo $foto ?>">
-                                    <br>
-                                </div>
-
-
-
                             </div>
                         </div>
 

@@ -71,17 +71,6 @@
 
                                 </div>
 
-                                <div class="form-group col-md-12">
-                                    <label for="fecha_creacion">Fecha Creacion </label>
-                                    <input type="date" class="form-control" require name="fecha_creacion" id="fecha_creacion" placeholder="" value="<?php echo $fecha_creacion ?>">
-
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="fecha_actualizacion">Fecha Actualizacion </label>
-                                    <input type="date" class="form-control" require name="fecha_actualizacion" id="fecha_actualizacion" placeholder="" value="<?php echo $fecha_actualizacion ?>">
-
-                                </div>
 
 
 
@@ -140,8 +129,7 @@
                         <th scope="col">Vehiculo</th>
                         <th scope="col">Placa Vehiculo</th>
                         <th scope="col">Activo</th>
-                        <th scope="col">Fecha creacion</th>
-                        <th scope="col">Fecha Actualizacion</th>
+
 
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Eliminar</th>
@@ -152,42 +140,36 @@
 
                     <?php
                     /* Prefunto que si la variable listaEmpleados tiene algun contenido */
-                    if ($listadomiciliario->num_rows > 0) {
+                    if ($listadomiciliarios->num_rows > 0) {
 
                         foreach ($listadomiciliarios as $domiciliarios) {
 
                     ?>
 
                             <tr>
-                                <td>
+                                <td>fecha_actualizacion
                                     <img src="../img/empleados.jpg" width="50px"/>
 
                                 </td>
 
-                                <td> <?php echo $domiciliarios['id_domiciliario']        ?> </td>
+                                <td> <?php echo $domiciliarios['id_domiciilario']        ?> </td>
                                 <td> <?php echo $domiciliarios['nombre']    ?> </td>
                                 <td> <?php echo $domiciliarios['telefono'] ?> </td>
                                 <td> <?php echo $domiciliarios['direccion']    ?> </td>
-                                <td> <?php echo $domiciliarios['telefono']    ?> </td>
                                 <td> <?php echo $domiciliarios['placa_vehiculo']    ?> </td>
                                 <td> <?php echo $domiciliarios['activo']    ?> </td>
-                                <td> <?php echo $domiciliarios['fecha_creacion']    ?> </td>
-                                <td> <?php echo $domiciliarios['fecha_actualizacion']    ?> </td>
+
 
 
 
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="id_domiciliario" value="<?php echo $domiciliarios['id_domiciliario'];  ?>">
+                                    <input type="hidden" name="id_domiciliario" value="<?php echo $domiciliarios['id_domiciilario'];  ?>">
                                     <input type="hidden" name="nombre" value="<?php echo $domiciliarios['nombre'];  ?>">
                                     <input type="hidden" name="telefono" value="<?php echo $domiciliarios['telefono'];  ?>">
                                     <input type="hidden" name="direccion" value="<?php echo $domiciliarios['direccion'];  ?>">
-                                    <input type="hidden" name="telefono" value="<?php echo $domiciliarios['telefono'];  ?>">
                                     <input type="hidden" name="placa_vehiculo" value="<?php echo $domiciliarios['placa_vehiculo'];  ?>">
                                     <input type="hidden" name="activo" value="<?php echo $domiciliarios['activo'];  ?>">
-                                    <input type="hidden" name="fecha_creacion" value="<?php echo $domiciliarios['fecha_creacion'];  ?>">
-                                    <input type="hidden" name="fecha_creacion" value="<?php echo $domiciliarios['fecha_actualizacion'];  ?>">
-
 
                                     <td><input type="submit" class="btn btn-info" value="Seleccionar"></td>
                                     <td><button value="btnEliminar" class="btn btn-danger" type="submit" name="accion">Eliminar</button></td>

@@ -41,7 +41,7 @@ switch ($accion) {
 
             if ($tmpFoto != "") {
                 /* Movemos el archivo a la carpeta imagenes  */
-                move_uploaded_file($tmpFoto, "src=../img/empleados.jpg" . $nombreFoto);
+                move_uploaded_file($tmpFoto, "../Imagenes/Empleados/" . $nombreFoto);
 
 
                 /* la variable sentencia recolecta la informacion del formulario y 
@@ -51,8 +51,8 @@ switch ($accion) {
                 */
                 $insercionEmpleados = $conn->prepare(
                     "INSERT INTO empleados( id_empleado, nombre, apellido, 
-                direccion, foto) 
-                VALUES ('$id_empleado','$nombre','$apellido','$direccion', '$telefono', '$correo_electro', '$fech_naci', '$Puesto', '$foto')"
+                direccion, telefono, correo_electro, fech_naci, Puesto, foto) 
+                VALUES ('$id_empleado','$nombre','$apellido','$direccion','$telefono','$correo_electro','$fech_naci','$Puesto','$foto')"
                 );
 
 
@@ -82,7 +82,7 @@ switch ($accion) {
     case 'btnModificar':
 
         $editarEmpleados = $conn->prepare(" UPDATE empleados SET nombre = '$nombre' , 
-        apellido = '$apellido', direccion = '$direccion'
+        apellido = '$apellido', direccion = '$direccion', telefono = '$telefono', correo_electro = '$correo_electro', fech_naci = '$fech_naci', Puesto = '$Puesto'
         WHERE id_empleado = '$id_empleado' ");
 
         /* Aca solo esta actualizando la fotografia */

@@ -14,8 +14,7 @@ $direccion = (isset($_POST['direccion'])) ? $_POST['direccion'] : "";
 $vehiculo = (isset($_POST['vehiculo'])) ? $_POST['vehiculo'] : "";
 $placa_vehiculo = (isset($_POST['placa_vehiculo'])) ? $_POST['placa_vehiculo'] : "";
 $activo = (isset($_POST['activo'])) ? $_POST['activo'] : "";
-$fecha_creacion = (isset($_POST['fecha_creacion'])) ? $_POST['fecha_creacion'] : "";
-$fecha_actualizacion = (isset($_POST['fecha_actualizacion'])) ? $_POST['fecha_actualizacion'] : "";
+
 
 $foto = (isset($_FILES['foto']["name"])) ? $_FILES['foto']["name"] : "";
 
@@ -52,8 +51,8 @@ switch ($accion) {
                 */
                 $inserciondomiciliarios = $conn->prepare(
                     "INSERT INTO domiciliarios( id_domiciliario, nombre, telefono, 
-                direccion, foto) 
-                VALUES ('$id_domiciliario','$nombre','$telefono','$direccion', '$vehiculo', '$placa_vehiculo', '$activo', '$fecha_creacion', '$fecha_actualizacion', '$foto')"
+                direccion, vehiculo, placa_vehiculo, activo, foto) 
+                VALUES ('$id_domiciliario','$nombre','$telefono','$direccion', '$vehiculo', '$placa_vehiculo', '$activo', '$foto')"
                 );
 
 
@@ -87,7 +86,7 @@ switch ($accion) {
         WHERE id_domiciliario = '$id_domiciliario' ");
 
         /* Aca solo esta actualizando la fotografia */
-        $editarEmpleadosFoto = $conn->prepare(" UPDATE domiciliarios SET  foto = '$foto'
+        $editardomiciliariosFoto = $conn->prepare(" UPDATE domiciliarios SET  foto = '$foto'
         WHERE id_domiciliario = '$id_domiciliario' ");
 
 
@@ -143,7 +142,7 @@ switch ($accion) {
 
 
 /* Consultamos todos los domiciliarios  */
-$consultaEmpleados = $conn->prepare("SELECT * FROM domiciliarios");
-$consultaEmpleados->execute();
-$listaEmpleados = $consultaEmpleados->get_result();
+$consultadomiciliarios = $conn->prepare("SELECT * FROM domiciliarios");
+$consultadomiciliarios->execute();
+$listadomiciliarios = $consultadomiciliarios->get_result();
 $conn->close();

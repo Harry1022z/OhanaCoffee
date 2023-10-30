@@ -32,7 +32,7 @@ switch ($accion) {
 
                 $insercionClientes = $conn->prepare(
                 "INSERT INTO clientes (id_cliente, nom_cli, ape_cli, tel_cli, dir_cli, correo_cli, fech_naci ) 
-                VALUES ('$id_cliente','$no_cli','$ape_cli','$tel_cli','$dir_cli','$correo_cli','$fech_naci')"
+                VALUES ('$id_cliente','$nom_cli','$ape_cli','$tel_cli','$dir_cli','$correo_cli','$fech_naci')"
              );
 
 
