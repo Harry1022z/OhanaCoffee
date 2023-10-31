@@ -6332,8 +6332,11 @@ button.bg-dark:hover {
   justify-content: flex-end !important;
 }
 .justify-content-center {
-  justify-content: center !important;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta esto según tus necesidades */
+  }
 .justify-content-between {
   justify-content: space-between !important;
 }
@@ -9924,7 +9927,7 @@ a:focus {
   }
 }
 .bg-login-image {
-  background-image: url("../img/2.png");
+  background-image: url('../img/iniciosesion.png');
   background-position: center;
   background-size: cover;
 }
