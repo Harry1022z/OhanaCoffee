@@ -147,7 +147,7 @@
                     ?>
 
                             <tr>
-                                <td>fecha_actualizacion
+                                <td>
                                     <img src="../img/empleados.jpg" width="50px"/>
 
                                 </td>
@@ -156,6 +156,7 @@
                                 <td> <?php echo $domiciliarios['nombre']    ?> </td>
                                 <td> <?php echo $domiciliarios['telefono'] ?> </td>
                                 <td> <?php echo $domiciliarios['direccion']    ?> </td>
+                                <td> <?php echo $domiciliarios['vehiculo']    ?> </td>
                                 <td> <?php echo $domiciliarios['placa_vehiculo']    ?> </td>
                                 <td> <?php echo $domiciliarios['activo']    ?> </td>
 
@@ -164,7 +165,7 @@
 
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="id_domiciliario" value="<?php echo $domiciliarios['id_domiciilario'];  ?>">
+                                    <input type="hidden" name="id_domiciilario" value="<?php echo $domiciliarios['id_domiciilario'];  ?>">
                                     <input type="hidden" name="nombre" value="<?php echo $domiciliarios['nombre'];  ?>">
                                     <input type="hidden" name="telefono" value="<?php echo $domiciliarios['telefono'];  ?>">
                                     <input type="hidden" name="direccion" value="<?php echo $domiciliarios['direccion'];  ?>">

@@ -41,7 +41,7 @@ switch ($accion) {
 
             if ($tmpFoto != "") {
                 /* Movemos el archivo a la carpeta imagenes  */
-                move_uploaded_file($tmpFoto, "src=../img/domiciliarios.jpg" . $nombreFoto);
+                move_uploaded_file($tmpFoto, "src=../img/" . $nombreFoto);
 
 
                 /* la variable sentencia recolecta la informacion del formulario y 
