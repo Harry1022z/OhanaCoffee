@@ -56,8 +56,8 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="dir_cli">Direccion</label>
-                                    <input type="text" class="form-control" require name="dir_cli" id="dir_cli" placeholder="" value="<?php echo $dir_cli ?>">
+                                    <label for="dire_cli">Direccion</label>
+                                    <input type="text" class="form-control" require name="dire_cli" id="dire_cli" placeholder="" value="<?php echo $dire_cli ?>">
                                     <br>
                                 </div>
 
@@ -147,7 +147,7 @@
                                 <td> <?php echo $cliente['nom_cli']    ?> </td>
                                 <td> <?php echo $cliente['ape_cli'] ?> </td>
                                 <td> <?php echo $cliente['tel_cli'] ?> </td>
-                                <td> <?php echo $cliente['dir_cli']    ?> </td>
+                                <td> <?php echo $cliente['dire_cli']    ?> </td>
                                 <td> <?php echo $cliente['correo_cli']    ?> </td>
                                 <td> <?php echo $cliente['fech_naci']    ?> </td>
 
@@ -161,7 +161,7 @@
                                     <input type="hidden" name="nom_cli" value="<?php echo $cliente['nom_cli'];  ?>">
                                     <input type="hidden" name="ape_cli" value="<?php echo $cliente['ape_cli'];  ?>">
                                     <input type="hidden" name="tel_cli" value="<?php echo $cliente['tel_cli'];  ?>">
-                                    <input type="hidden" name="dir_cli" value="<?php echo $cliente['dir_cli'];  ?>">
+                                    <input type="hidden" name="dire_cli" value="<?php echo $cliente['dire_cli'];  ?>">
                                     <input type="hidden" name="correo_cli" value="<?php echo $cliente['correo_cli'];  ?>">
                                     <input type="hidden" name="fech_naci" value="<?php echo $cliente['fech_naci'];  ?>">
 

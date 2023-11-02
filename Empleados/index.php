@@ -116,7 +116,7 @@
                 <thead class="thead-dark">
 
                     <tr>
-                        <th scope="col">Foto</th>
+
                         <th scope="col">Identificacion</th>
                         <th scope="col">Nombres</th>
                         <th scope="col">Apellidos</th>
@@ -142,10 +142,7 @@
                     ?>
 
                             <tr>
-                                <td>
-                                    <img src="../img/empleados.jpg" width="50px"/>
 
-                                </td>
 
                                 <td> <?php echo $empleado['id_empleado']        ?> </td>
                                 <td> <?php echo $empleado['nombre']    ?> </td>

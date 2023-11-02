@@ -74,12 +74,6 @@
 
 
 
-                                <div class="form-group col-md-12">
-                                    <label for="foto">foto</label>
-                                    <!-- El atributo accept image .... solo acepta formatos de imagen -->
-                                    <input type="file" class="form-control" require accept="image/*" name="foto" id="foto" placeholder="" value="<?php echo $foto ?>">
-                                    <br>
-                                </div>
 
 
 
@@ -121,7 +115,7 @@
                 <thead class="thead-dark">
 
                     <tr>
-                        <th scope="col">Foto</th>
+
                         <th scope="col">Identificacion</th>
                         <th scope="col">Nombre Completo</th>
                         <th scope="col">Telefono</th>
@@ -147,12 +141,8 @@
                     ?>
 
                             <tr>
-                                <td>
-                                    <img src="../img/empleados.jpg" width="50px"/>
 
-                                </td>
-
-                                <td> <?php echo $domiciliarios['id_domiciilario']        ?> </td>
+                                <td> <?php echo $domiciliarios['id_domiciliario']        ?> </td>
                                 <td> <?php echo $domiciliarios['nombre']    ?> </td>
                                 <td> <?php echo $domiciliarios['telefono'] ?> </td>
                                 <td> <?php echo $domiciliarios['direccion']    ?> </td>
@@ -165,7 +155,7 @@
 
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="id_domiciilario" value="<?php echo $domiciliarios['id_domiciilario'];  ?>">
+                                    <input type="hidden" name="id_domiciliario" value="<?php echo $domiciliarios['id_domiciliario'];  ?>">
                                     <input type="hidden" name="nombre" value="<?php echo $domiciliarios['nombre'];  ?>">
                                     <input type="hidden" name="telefono" value="<?php echo $domiciliarios['telefono'];  ?>">
                                     <input type="hidden" name="direccion" value="<?php echo $domiciliarios['direccion'];  ?>">

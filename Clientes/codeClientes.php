@@ -11,7 +11,7 @@ $id_cliente = (isset($_POST['id_cliente'])) ? $_POST ['id_cliente'] : "";
 $nom_cli = (isset($_POST['nom_cli'])) ? $_POST['nom_cli'] : "";
 $ape_cli = (isset($_POST['ape_cli'])) ? $_POST['ape_cli'] : "";
 $tel_cli = (isset($_POST['tel_cli'])) ? $_POST['tel_cli'] : "";
-$dir_cli = (isset($_POST['dir_cli'])) ? $_POST['dir_cli'] : "";
+$dire_cli = (isset($_POST['dire_cli'])) ? $_POST['dire_cli'] : "";
 $correo_cli = (isset($_POST['correo_cli'])) ? $_POST['correo_cli'] : "";
 $fech_naci = (isset($_POST['fech_naci'])) ? $_POST['fech_naci'] : "";
 
@@ -31,8 +31,8 @@ switch ($accion) {
                 */
 
                 $insercionClientes = $conn->prepare(
-                "INSERT INTO clientes (id_cliente, nom_cli, ape_cli, tel_cli, dir_cli, correo_cli, fech_naci ) 
-                VALUES ('$id_cliente','$nom_cli','$ape_cli','$tel_cli','$dir_cli','$correo_cli','$fech_naci')"
+                "INSERT INTO clientes (id_cliente, nom_cli, ape_cli, tel_cli, dire_cli, correo_cli, fech_naci ) 
+                VALUES ('$id_cliente','$nom_cli','$ape_cli','$tel_cli','$dire_cli','$correo_cli','$fech_naci')"
              );
 
 
@@ -49,7 +49,7 @@ switch ($accion) {
     case 'btnModificar':
 
         $editarClientes = $conn->prepare(" UPDATE clientes SET nom_cli = '$nom_cli' , 
-        ape_cli = '$ape_cli', tel_cli = '$tel_cli', dir_cli = '$dir_cli' , correo_cli = '$correo_cli' , fech_naci = '$fech_naci'
+        ape_cli = '$ape_cli', tel_cli = '$tel_cli', dire_cli = '$dire_cli' , correo_cli = '$correo_cli' , fech_naci = '$fech_naci'
         WHERE id_cliente = '$id_cliente' ");
 
 

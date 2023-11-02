@@ -16,32 +16,13 @@ $placa_vehiculo = (isset($_POST['placa_vehiculo'])) ? $_POST['placa_vehiculo'] :
 $activo = (isset($_POST['activo'])) ? $_POST['activo'] : "";
 
 
-$foto = (isset($_FILES['foto']["name"])) ? $_FILES['foto']["name"] : "";
+
 
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
 
 switch ($accion) {
     case 'btnAgregar':
-
-
-
-        $fecha = new DateTime();
-        //Se crea el nombre de la imagen.... si no tenemos fotos por defecto toma imagen.jpg
-        $nombreFoto = ($foto != "") ? $fecha->getTimestamp() . "_" . $_FILES["foto"]["name"] : "imagen.jpg";
-
-        $nombreFoto = $foto;
-
-        //nombre que devuelve PHP de la imagen
-        $tmpFoto = $_FILES["foto"]["tmp_name"];
-
-        if ($_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-            // Continuar con el proceso de carga y almacenamiento de la imagen.
-
-
-            if ($tmpFoto != "") {
-                /* Movemos el archivo a la carpeta imagenes  */
-                move_uploaded_file($tmpFoto, "src=../img/" . $nombreFoto);
 
 
                 /* la variable sentencia recolecta la informacion del formulario y 
@@ -51,72 +32,22 @@ switch ($accion) {
                 */
                 $inserciondomiciliarios = $conn->prepare(
                     "INSERT INTO domiciliarios( id_domiciliario, nombre, telefono, 
-                direccion, vehiculo, placa_vehiculo, activo, foto) 
-                VALUES ('$id_domiciliario','$nombre','$telefono','$direccion', '$vehiculo', '$placa_vehiculo', '$activo', '$foto')"
+                direccion, vehiculo, placa_vehiculo, activo) 
+                VALUES ('$id_domiciliario','$nombre','$telefono','$direccion', '$vehiculo', '$placa_vehiculo', '$activo')"
                 );
 
 
 
                 $inserciondomiciliarios->execute();
                 $conn->close();
-               
-               echo" <script>
-                    swal('Mensaje Principal!', 'Mensaje segundario!', 'success');
-                    </script>";
                 
-
-                header('location: index.php');
-            } else {
-                echo "Problemas";
-            }
-        } else {
-            // Manejar el error de carga de la imagen.
-            echo "Error al cargar la imagen: " . $_FILES['foto']['error'];
-        }
+                case 'btnModificar':
+                $editardomiciliarios = $conn->prepare(" UPDATE domiciliarios SET nombre = '$nombre' , 
+                telefono = '$telefono', direccion = '$direccion'
+                WHERE id_domiciliario = '$id_domiciliario' ");
 
 
 
-
-        break;
-
-    case 'btnModificar':
-
-        $editardomiciliarios = $conn->prepare(" UPDATE domiciliarios SET nombre = '$nombre' , 
-        telefono = '$telefono', direccion = '$direccion'
-        WHERE id_domiciliario = '$id_domiciliario' ");
-
-        /* Aca solo esta actualizando la fotografia */
-        $editardomiciliariosFoto = $conn->prepare(" UPDATE domiciliarios SET  foto = '$foto'
-        WHERE id_domiciliario = '$id_domiciliario' ");
-
-
-        $fecha = new DateTime();
-        //Se crea el nombre de la imagen.... si no tenemos fotos por defecto toma imagen.jpg
-        $nombreFoto = ($foto != "") ? $fecha->getTimestamp() . "_" . $_FILES["foto"]["name"] : "imagen.jpg";
-
-        $nombreFoto = $foto;
-
-        //nombre que devuelve PHP de la imagen
-        $tmpFoto = $_FILES["foto"]["tmp_name"];
-
-
-
-        if ($tmpFoto != "") {
-            /* Movemos el archivo a la carpeta imagenes  */
-            move_uploaded_file($tmpFoto, "../Imagenes/Empleados/" . $nombreFoto);
-
-            header('location: index.php');
-        } else {
-            echo "Problemas con la Foto";
-        }
-
-        $editardomiciliarios->execute();
-        $editardomiciliariosFoto->execute();
-        $conn->close();
-
-        header('location: index.php');
-
-        break;
 
     case 'btnEliminar':
         
