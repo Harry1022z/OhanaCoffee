@@ -7,7 +7,7 @@ include("../Conexion/conexion.php");
 
 
 //Recibimos las variables enviadas
-$fech_hor_pedido = (isset($_POST['fech_hor_pedido'])) ? $_POST['fech_hor_pedido'] : "";
+
 $id_pedido = (isset($_POST['id_pedido'])) ? $_POST['id_pedido'] : "";
 $id_cliente = (isset($_POST['id_cliente'])) ? $_POST['id_cliente'] : "";
 $id_empleado = (isset($_POST['id_empleado'])) ? $_POST['id_empleado'] : "";
@@ -29,17 +29,19 @@ switch ($accion) {
                 ->prepare nos prepara la sentencia SQL para que inyecte los valores a la BD.
                 */
 
-                $insercionpedidos = $conn->prepare(
-                "INSERT INTO pedidos ( fech_hor_pedido, id_pedido, id_cliente, id_empleado, id_mesa, id_menus ) 
-                VALUES ('$fech_hor_pedido','$id_pedido','$id_cliente','$id_empleado','$id_mesa','$id_menus')"
+
+                $insercionPedidos = $conn->prepare(
+                "INSERT INTO pedidos (id_cliente, id_empleado, id_mesa, id_menus ) 
+                VALUES ('$id_cliente','$id_empleado','$id_mesa','$id_menus')"
              );
 
 
 
-        $insercionpedidos->execute();
+       $insercionPedidos->execute();
         $conn->close();
 
-        header('location: index.php');
+      header('location: index.php');
+      
 
 
 
@@ -50,7 +52,7 @@ switch ($accion) {
         
 
         $eliminarpedidos = $conn->prepare(" DELETE FROM pedidos
-        WHERE fech_hor_pedido = '$fech_hor_pedido' ");
+        WHERE id_pedido = '$id_pedido' ");
 
         // $consultaFoto->execute();
         $eliminarpedidos->execute();
@@ -63,7 +65,7 @@ switch ($accion) {
     case 'btnCancelar':
         header('location: index.php');
         break;
-
+  
     
 }
 
@@ -72,7 +74,7 @@ switch ($accion) {
 /* Consultamos todas las Facturas  */
 $consultapedidos = $conn->prepare("SELECT * FROM pedidos");
 $consultapedidos->execute();
-$listaFacturas = $consultapedidos->get_result();
+$listapedidos = $consultapedidos->get_result();
 
 
 
@@ -81,12 +83,21 @@ $consultaClientes = $conn->prepare("SELECT * FROM clientes");
 $consultaClientes->execute();
 $listaClientes = $consultaClientes->get_result();
 
-
-
 /* Consultamos todos los Empleados  */
 $consultaEmpleados = $conn->prepare("SELECT * FROM empleados");
 $consultaEmpleados->execute();
 $listaEmpleados = $consultaEmpleados->get_result();
+
+/* Consultamos todos los Empleados  */
+$consultamesas = $conn->prepare("SELECT * FROM mesas");
+$consultamesas->execute();
+$listamesas = $consultamesas->get_result();
+
+
+/* Consultamos todos los Empleados  */
+$consultamenus = $conn->prepare("SELECT * FROM menus");
+$consultamenus->execute();
+$listamenus = $consultamenus->get_result();
 
 //Al final de todas las consultas se cierra la conexion
 $conn->close();

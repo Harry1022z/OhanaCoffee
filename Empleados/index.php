@@ -135,9 +135,9 @@
 
                     <?php
                     /* Prefunto que si la variable listaEmpleados tiene algun contenido */
-                    if ($listaEmpleados->num_rows > 0) {
+                    if ($listaempleados->num_rows > 0) {
 
-                        foreach ($listaEmpleados as $empleado) {
+                        foreach ($listaempleados as $empleado) {
 
                     ?>
 

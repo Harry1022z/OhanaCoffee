@@ -35,17 +35,17 @@
                                 <!-- Selector de EMPLEADOS -->
                                 <div class="form-group col-md-12">
 
-                                    <label for="id_cliente">Empleado</label>
+                                    <label for="id_empleado">Empleado</label>
 
 
-                                    <select name="id_cliente" id="id_cliente" class="form-control">
+                                    <select name="id_empleado" id="id_empleado" class="form-control">
 
                                         <?php
 
                                         if ($listaEmpleados->num_rows > 0) {
                                             foreach ($listaEmpleados as $empleado) {
                                                 echo " <option value='' hidden > Seleccione el Empleado</option> ";
-                                                echo " <option value='{$empleado['id']}'> {$empleado['id']} {$empleado['nombre']} {$empleado['apellidoP']} </option> ";
+                                                echo " <option value='{$empleado['id_empleado']}'> {$empleado['id_empleado']} {$empleado['nombre']} {$empleado['apellido']} </option> ";
                                             }
                                         } else {
 
@@ -65,17 +65,17 @@
 
                                 <div class="form-group col-md-12">
 
-                                    <label for="id_cliente">Cliente</label>
+                                    <label for="id_cliente ">Cliente</label>
 
 
-                                    <select name="id_cliente" id="id_cliente" class="form-control">
+                                    <select name="id_cliente " id="id_cliente " class="form-control">
 
                                         <?php
 
                                         if ($listaClientes->num_rows > 0)
                                             foreach ($listaClientes as $cliente) {
-                                                echo " <option value='' hidden > Seleccione el Empleado</option> ";
-                                                echo " <option value='{$cliente['id_cliente']}'> {$cliente['id_cliente']} {$cliente['nom_cli']} {$cliente['ape_cliente']} </option> ";
+                                                echo " <option value='' hidden > Seleccione el Cliente</option> ";
+                                                echo " <option value='{$cliente['id_cliente']}'> {$cliente['id_cliente']} {$cliente['nom_cli']} {$cliente['ape_cli']} </option> ";
                                                         } else {"<h2> No tenemos resultados </h2>";
                                         }
                                         ?>
@@ -84,14 +84,51 @@
 
                                 </div>
 
-                                <!-- FIN SELECTOR CLIENTE -->
+                                <!-- FIN SELECTOR  -->
 
 
+                                    <!-- INICIO SELECTOR MENU -->
 
                                 <div class="form-group col-md-12">
-                                    <label for="id_mesa">Detalle</label>
-                                    <input type="text" class="form-control" require name="id_mesa" id="id_mesa" placeholder="Detalle de la factura" value="<?php echo $id_mesa ?>">
-                                    <br>
+
+                                    <label for="id_mesa">Mesas</label>
+
+
+                                    <select name="id_mesa" id="id_mesa" class="form-control">
+
+                                        <?php
+
+                                        if ($listamesas->num_rows > 0)
+                                            foreach ($listamesas as $mesas) {
+                                                echo " <option value='' hidden > Seleccione la mesa</option> ";
+                                                echo " <option value='{$mesas['id_mesa']}'> {$mesas['nombre_mesa']} {$mesas['ubicacion_mesa']} {$mesas['capacidad']} </option> ";
+                                                        } else {"<h2> No tenemos resultados </h2>";
+                                        }
+                                        ?>
+                                    </select>
+
+
+                                </div>
+
+                                <div class="form-group col-md-12">
+
+                                    <label for="id_menus">Menus</label>
+
+
+                                    <select name="id_menus" id="id_menus" class="form-control">
+
+                                        <?php
+
+                                        if ($listamenus->num_rows > 0)
+                                            foreach ($listamenus as $menu) {
+                                                echo " <option value='' hidden > Seleccione el menu</option> ";
+                                                echo " <option value='{$menu['id_menus']}'> {$menu['nom_plato']} {$menu['desc_plato']} </option> ";
+                                                        } else {"<h2> No tenemos resultados </h2>";
+                                        }
+                                        ?>
+                                    </select>
+
+
                                 </div>
 
 
@@ -135,12 +172,12 @@
 
                     <tr>
 
+                        <th scope="col">Fecha y hora</th>
                         <th scope="col">Numero de Factura</th>
-                        <th scope="col">Fecha</th>
                         <th scope="col">Empleado</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Detalle</th>
-
+ 
 
                         <th scope="col">Eliminar</th>
                     </tr>
@@ -150,9 +187,9 @@
 
                     <?php
                     /* Prefunto que si la variable listaClientes tiene algun contenido */
-                    if ($listaFacturas->num_rows > 0) {
+                    if ($listapedidos->num_rows > 0) {
 
-                        foreach ($listaFacturas as $factura) {
+                        foreach ($listapedidos as $pedidos) {
 
                     ?>
 
@@ -160,22 +197,22 @@
 
 
 
-                                <td> <?php echo $factura['fech_hor_pedido']  ?> </td>
-                                <td> <?php echo $factura['id_pedido']       ?> </td>
-                                <td> <?php echo $factura['id_cliente'] ?> </td>
-                                <td> <?php echo $factura['id_empleado']  ?> </td>
-                                <td> <?php echo $factura['id_mesa']     ?> </td>
+                                <td> <?php echo $pedidos['fech_hor_pedido']  ?> </td>
+                                <td> <?php echo $pedidos['id_pedido']       ?> </td>
+                                <td> <?php echo $pedidos['id_empleado'] ?> </td>
+                                <td> <?php echo $pedidos['id_empleado']  ?> </td>
+                                <td> <?php echo $pedidos['id_mesa']     ?> </td>
 
 
 
                                 <!-- Este Formulario se utiliza para editar los registros -->
                                 <form action="" method="post">
 
-                                    <input type="hidden" name="fech_hor_pedido" value="<?php echo $factura['fech_hor_pedido'];  ?>">
-                                    <input type="hidden" name="id_pedido" value="<?php echo $factura['id_pedido'];  ?>">
-                                    <input type="hidden" name="nom_cli" value="<?php echo $factura['id_cliente'];  ?>">
-                                    <input type="hidden" name="ape_cli" value="<?php echo $factura['id_empleado'];  ?>">
-                                    <input type="hidden" name="tel_cli" value="<?php echo $factura['id_mesa'];  ?>">
+                                    <input type="hidden" name="fech_hor_pedido" value="<?php echo $pedidos['fech_hor_pedido'];  ?>">
+                                    <input type="hidden" name="id_pedido" value="<?php echo $pedidos['id_pedido'];  ?>">
+                                    <input type="hidden" name="nom_cli" value="<?php echo $pedidos['id_empleado'];  ?>">
+                                    <input type="hidden" name="ape_cli" value="<?php echo $pedidos['id_empleado'];  ?>">
+                                    <input type="hidden" name="tel_cli" value="<?php echo $pedidos['id_mesa'];  ?>">
 
 
 
